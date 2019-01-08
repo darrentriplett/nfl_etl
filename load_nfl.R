@@ -214,5 +214,30 @@ extra_points_total INT(1));")
 #load the kicking dataframe into the kicking table
 dbWriteTable(con, "kicking", kicking, append = TRUE, row.names = FALSE)
 
+#create the defense table
+dbSendQuery(con, "
+CREATE TABLE defense (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+season INT(4),
+game_id VARCHAR(15),
+date DATE,
+team VARCHAR(3),
+player_id VARCHAR(10),
+name VARCHAR(30),
+tackles INT(2),
+assist_tackles INT(2),
+sacks INT(2),
+interceptions INT(2),
+forced_fumbles INT(2),
+recovered_fumbles INT(2),
+total_fumbles INT(2),
+total_recovered_fumbles INT(2),
+fumble_yards INT(3));")
+
+
+
+#load the defense dataframe into the defense table
+dbWriteTable(con, "defense", defense, append = TRUE, row.names = FALSE)
+
 #close the connection
 dbDisconnect(con)
