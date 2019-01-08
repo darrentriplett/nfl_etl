@@ -116,6 +116,7 @@ defense <- season_player_games %>%
   filter(tackles > 0 | asst.tackles > 0 | sacks > 0  | defints > 0 | forced.fumbs > 0) %>%
   select(Season:name, tackles:forced.fumbs, recfumbs, totalfumbs, totalrecfumbs, fumbyds) %>%
   rename(game_id = game.id,
+         player_id = playerID,
          assist_tackles = asst.tackles, 
          interceptions = defints, 
          forced_fumbles = forced.fumbs, 

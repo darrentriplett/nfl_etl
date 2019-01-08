@@ -150,21 +150,21 @@ dbWriteTable(con, "receiving", receiving, append = TRUE, row.names = FALSE)
 #create the kick_return table
 dbSendQuery(con, "
 CREATE TABLE kick_return (
-            id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            season INT(4),
-            game_id VARCHAR(15),
-            date DATE,
-            team VARCHAR(3),
-            player_id VARCHAR(10),
-            name VARCHAR(30),
-            kick_returns INT(2),
-            return_average INT(2),
-            return_tds INT(2),
-            kick_return_long INT(2),
-            kick_return_long_td INT(2),
-            fumbles INT(2),
-            recovered_fumbles INT(2),
-            fumbles_lost INT(2));")
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+season INT(4),
+game_id VARCHAR(15),
+date DATE,
+team VARCHAR(3),
+player_id VARCHAR(10),
+name VARCHAR(30),
+kick_returns INT(2),
+return_average INT(2),
+return_tds INT(2),
+kick_return_long INT(2),
+kick_return_long_td INT(2),
+fumbles INT(2),
+recovered_fumbles INT(2),
+fumbles_lost INT(2));")
 
 #load the kick_return dataframe into the kick_return table
 dbWriteTable(con, "kick_returns", kick_return, append = TRUE, row.names = FALSE)
