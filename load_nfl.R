@@ -5,8 +5,8 @@ library(RMySQL)
 
 #create a connection MySQL
 con <- dbConnect(MySQL(), 
-                 user = "dt",
-                 password = "*******",
+                 user = "root",
+                 password = "indurain",
                  host = 'localhost')
 
 #create the nfl data database

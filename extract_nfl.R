@@ -8,7 +8,7 @@ library(tidyverse)
 season_player_games <- data.frame()
 
 #Let's pull down the game level player data
-for (e in 2009:2018){
+for (e in 2009:2019){
   temp_df <- season_player_game(Season = e)
   season_player_games <- bind_rows(season_player_games, temp_df)
 }
@@ -20,7 +20,7 @@ data(nflteams)
 team_abrev <- nflteams$abbr
 rosters <- data.frame()
 
-for (year in 2009:2018){
+for (year in 2009:2019){
   temp_df <- season_rosters(year, team_abrev)
   rosters <- bind_rows(rosters, temp_df)
 }
@@ -30,7 +30,7 @@ for (year in 2009:2018){
 game_results <- data.frame()
 
 #This pulls down the scores for each game
-for (e in 2009:2018){
+for (e in 2009:2019){
   print(e)
   temp_df <- season_games(Season = e)
   game_results <- bind_rows(game_results, temp_df)
@@ -50,3 +50,14 @@ for (e in game_ids){
   drive_summaries <- bind_rows(drive_summaries, temp_df)
   
 }
+
+#let's get the play by play data as well
+
+nfl_pbp <- data.frame()
+for (e in 2009:2019){
+  
+  temp_df <- season_play_by_play(Season = e)
+  nfl_pbp <- bind_rows(nfl_pbp, temp_df)
+  
+}
+
